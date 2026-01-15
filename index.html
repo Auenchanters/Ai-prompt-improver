@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Improver</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body>
+    <!-- Staggered Grid Background -->
+    <div id="staggered-grid">
+        <div id="tiles"></div>
+    </div>
+
+    <div class="container">
+        <h1>AI Prompt Improver</h1>
+        <p class="subtitle">Enter the AI model/website and your prompt to get an optimized version</p>
+
+        <div class="form-group">
+            <label for="aiModel">AI Model / Website</label>
+            <input type="text" id="aiModel" placeholder="e.g., ChatGPT, Midjourney, Claude, DALL-E, Gemini...">
+        </div>
+
+        <div class="form-group">
+            <label for="originalPrompt">Your Prompt</label>
+            <textarea id="originalPrompt" rows="6" placeholder="Enter your prompt here..."></textarea>
+        </div>
+
+        <div class="form-group optional-group">
+            <div class="use-case-header">
+                <label for="useCase">Intended Use Case <span class="optional-tag">(optional)</span></label>
+                <button type="button" id="autoFillBtn" class="auto-fill-btn" onclick="autoFillUseCase()">
+                    <span id="autoFillText">✨ Auto-Fill</span>
+                    <span id="autoFillLoader" class="loader small hidden"></span>
+                </button>
+            </div>
+            <input type="text" id="useCase"
+                placeholder="e.g., Blog writing, product marketing, academic research, personal project...">
+            <p class="helper-text">Who/what is this prompt for? Click Auto-Fill to let AI detect the best use case.</p>
+        </div>
+
+        <button id="improveBtn" onclick="improvePrompt()">
+            <span id="btnText">Improve Prompt</span>
+            <span id="loader" class="loader hidden"></span>
+        </button>
+
+        <div id="resultSection" class="result-section hidden">
+            <div class="result-header">
+                <label>Improved Prompt</label>
+                <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+            </div>
+            <div id="improvedPrompt" class="improved-prompt"></div>
+        </div>
+
+        <div id="errorSection" class="error-section hidden"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
